@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <!-- 
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.0 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            使用Kotlin开发Android(一) | 
+        
+        LLhon
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="LLhon">
+    <meta name="description" content="勿忘初心">
+    <meta name="keywords" content="null">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="LLhon">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="使用Kotlin开发Android(一) | LLhon">
+    <meta property="og:description" content="勿忘初心">
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/queue.js"></script>
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#语法"><span class="post-toc-number">2.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Kotlin与Java混编"><span class="post-toc-number">3.</span> <span class="post-toc-text">Kotlin与Java混编</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#将Java转为Kotlin"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">将Java转为Kotlin</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#在Kotlin中调用Java代码"><span class="post-toc-number">3.0.2.</span> <span class="post-toc-text">在Kotlin中调用Java代码</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#在Java中调用Kotlin代码"><span class="post-toc-number">3.0.3.</span> <span class="post-toc-text">在Java中调用Kotlin代码</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Kotlin的类特性"><span class="post-toc-number">4.</span> <span class="post-toc-text">Kotlin的类特性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#构造函数"><span class="post-toc-number">4.0.1.</span> <span class="post-toc-text">构造函数</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#次级构造函数"><span class="post-toc-number">4.0.2.</span> <span class="post-toc-text">次级构造函数</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#修饰符"><span class="post-toc-number">4.0.3.</span> <span class="post-toc-text">修饰符</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#field标识符"><span class="post-toc-number">4.0.4.</span> <span class="post-toc-text">field标识符</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#嵌套类"><span class="post-toc-number">4.0.5.</span> <span class="post-toc-text">嵌套类</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#一些特殊的类"><span class="post-toc-number">4.0.6.</span> <span class="post-toc-text">一些特殊的类</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#类的扩展"><span class="post-toc-number">5.</span> <span class="post-toc-text">类的扩展</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#扩展方法"><span class="post-toc-number">5.0.1.</span> <span class="post-toc-text">扩展方法</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#强转与智能转换"><span class="post-toc-number">5.0.2.</span> <span class="post-toc-text">强转与智能转换</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#伴生对象"><span class="post-toc-number">5.0.3.</span> <span class="post-toc-text">伴生对象</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#单例类设计"><span class="post-toc-number">5.0.4.</span> <span class="post-toc-text">单例类设计</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数与闭包"><span class="post-toc-number">6.</span> <span class="post-toc-text">函数与闭包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Unit"><span class="post-toc-number">6.0.1.</span> <span class="post-toc-text">Unit</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Nothing"><span class="post-toc-number">6.0.2.</span> <span class="post-toc-text">Nothing</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#闭包"><span class="post-toc-number">6.0.3.</span> <span class="post-toc-text">闭包</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#自执行闭包"><span class="post-toc-number">6.0.4.</span> <span class="post-toc-text">自执行闭包</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Lambda表达式"><span class="post-toc-number">6.0.5.</span> <span class="post-toc-text">Lambda表达式</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#高阶函数"><span class="post-toc-number">6.0.6.</span> <span class="post-toc-text">高阶函数</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#内联函数"><span class="post-toc-number">6.0.7.</span> <span class="post-toc-text">内联函数</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#集合泛型与操作符"><span class="post-toc-number">7.</span> <span class="post-toc-text">集合泛型与操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#Kotlin中的集合接口"><span class="post-toc-number">7.0.1.</span> <span class="post-toc-text">Kotlin中的集合接口</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#in与out"><span class="post-toc-number">7.0.2.</span> <span class="post-toc-text">in与out</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#集合的初始化"><span class="post-toc-number">7.0.3.</span> <span class="post-toc-text">集合的初始化</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#操作符"><span class="post-toc-number">7.0.4.</span> <span class="post-toc-text">操作符</span></a></li></ol></li></ol></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                使用Kotlin开发Android(一)
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/luna.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>LLhon</strong>
+        <span>5月 22, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=使用Kotlin开发Android(一)&url=http://yoursite.com//2018/05/22/使用Kotlin开发Android/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=使用Kotlin开发Android(一)&url=http://yoursite.com//2018/05/22/使用Kotlin开发Android/index.html&via=LLhon" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com//2018/05/22/使用Kotlin开发Android/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2018/05/22/使用Kotlin开发Android/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>为什么要去学习Kotlin来开发 Android? “Google 在 Google I/O 2017 宣布支持 Kotlin 为 Android”这一句大概足以让我们开发者去尝试这门新语言了吧. Kotlin是一种基于jvm的静态类型编程语言,由 JetBrains 开发.</p>
+<p>Kotlin有哪些好处呢?</p>
+<blockquote>
+<ol>
+<li>相比java更简洁~短小<del>精悍</del>~(略略略),代码行数减少约40%. 它也更安全,NullPointerException算是大家见过最多的异常了吧，而kotlin恰恰可以干掉它，就问你开不开森.</li>
+<li>扩展函数，智能类型转换，不用再见到那该死的findViewById了</li>
+<li>无缝对接Java，可以java代码与kotlin代码互相调用.</li>
+<li>一键java转kotlin，简化现有代码的迁移.</li>
+<li>可进行android开发，服务器端开发，web开发，桌面开发等.(瞬间感觉掌握这一门语言走遍天下都不怕啦)</li>
+</ol>
+</blockquote>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>######变量</p>
+<ul>
+<li>声明变量使用<code>var</code>,声明常量使用<code>val</code>,声明时kotlin语言是可以自动推断出字段类型的.</li>
+</ul>
+<pre><code>fun main(args: Array&lt;String&gt; {
+var quantitly  = 10
+val price: Double = 20.3
+val name: String = &quot;大米&quot;
+println(&quot;单价:$price&quot;)
+println(&quot;数量:$quantity&quot;)
+println(&quot;产品:$name 总计:${quantity * price}&quot;)
+</code></pre><p>######语句</p>
+<ul>
+<li>in关键字的使用: 判断一个对象是否在某一个区间内</li>
+</ul>
+<pre><code>//如果存在于区间(1, y-1)
+if(x in 1..y-1)
+    print(&quot;OK&quot;)
+//如果x不存在于array中
+if(x !in 0..array.lastIndex)
+//打印1到5
+for(x in 1..5)
+//遍历集合
+for(name in names) {
+    println(name);
+}
+//如果names集合中包含text对象
+if(text in names)
+</code></pre><ul>
+<li>when表达式: 类似于Java中的switch,但kotlin更加智能,可以自动判断参数的类型.</li>
+</ul>
+<pre><code>fun cases(obj: Any) {
+    when(obj) {
+        1 -&gt; print(&quot;第一项&quot;)
+        &quot;hello&quot; -&gt; print(&quot;这个是字符串&quot;)
+        is Long -&gt; print(&quot;这是一个Long类型的数据&quot;)
+        !is String -&gt; print(&quot;这不是String类型的数据&quot;)
+        else -&gt; print(&quot;else类似于Java中的default&quot;)
+    }
+}
+</code></pre><ul>
+<li>智能类型推测: 判断一个对象是否为一个类的实例, 可以使用is关键字.与Java中的instanceof关键字类似,但在kotlin中如果已经确定了一个对象的类型,可以在接下来的代码块中直接作为这个确定类型使用.</li>
+</ul>
+<pre><code>fun getStringLength(obj: Any): Int? {
+    if(obj is String) {
+        //做过类型判断以后,obj会被系统自动转换为String类型
+        return obj.length
+    }
+    //同时还可以使用!is, 来取反
+    if(obj !is String) {
+    }
+    //代码块外部的obj仍然是Any类型的引用
+    return null
+}
+</code></pre><ul>
+<li><p><code>!!</code>操作符: 将任何值转换为非空类型,若该值为空则抛出异常.如下所示:</p>
+<pre><code>var a = null
+a!!
+//运行代码,抛出KotlinNullPointerException
+</code></pre></li>
+</ul>
+<p>######空安全</p>
+<ol>
+<li><p>可空类型与非空类型</p>
+<ul>
+<li><p>在Kotlin中,类型系统区分一个引用可以容纳null(可空引用)还是不能容纳(非空引用).例如,String类型的常规变量不能容纳null. </p>
+<pre><code>var a = &quot;a&quot;
+a = null
+</code></pre></li>
+<li><p>如果要允许为空,我们可以声明一个变量为可空字符串,在字符串类型后面加一个问号<code>?</code>,写作<code>String?</code>,如下所示:</p>
+<pre><code>var b: String? = &quot;b&quot;
+b = null
+</code></pre></li>
+</ul>
+</li>
+<li><p>安全调用操作符</p>
+<ul>
+<li><p>接着上面的代码,如果你调用<code>a</code>的方法或者访问它的属性,不会出现NullPointerException,但如果调用<code>b</code>的方法或者访问它的属性,编译器会报告一个错误.</p>
+<pre><code>b.length
+</code></pre></li>
+<li><p>这个时候可以使用安全调用操作符,写作<code>?.</code>,在<code>b</code>后面加安全调用操作符,表示如果<code>b</code>不为null则调用<code>b.length</code>,如下所示:     </p>
+<pre><code>b?.length
+</code></pre></li>
+<li><p>安全调用操作符还能链式调用,如果该链式调用中任何一个属性为null,整个表达式都会返回null.如果要只对非空值执行某个操作,安全调用操作符可以与<code>let</code>一起使用</p>
+<pre><code>val listWithNulls: List&lt;String?&gt; = listOf(&quot;A&quot;, null, &quot;B&quot;)
+for (item in listWithNulls) {
+    item?.let { println(item) }
+}
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<p>######函数</p>
+<ul>
+<li>函数的声明: 函数使用关键字<code>fun</code>声明.</li>
+</ul>
+<pre><code>fun say(str: String): String {
+    return str
+}    
+//可以简写为:
+fun say(str: String): String = str
+//如果是返回Int类型,那么可以不写返回类型
+fun getIntValue(value: Int) = value
+</code></pre><ul>
+<li>函数的默认参数: </li>
+</ul>
+<pre><code>//你可以调用say(),来得到默认的字符串&quot;hello&quot;,也可以自己传入参数say(&quot;world&quot;)来得到传入参数值.
+fun say(str: String = &quot;hello&quot;): String = str
+//多行参数的写法:
+fun say(firstStr: String = &quot;Hello&quot;, lastStr: String = &quot;World&quot;) {
+}
+</code></pre><ul>
+<li>可变参数</li>
+</ul>
+<pre><code>//在Java中,我们可以表示一个可变参数
+public boolean hasEmpty(String... strArray) {
+    for(String str: strArray) {
+        if(&quot;&quot;.equals(str) || str == null) 
+            return true;
+    }
+    return false;
+}
+//在kotlin中,使用关键字vararg来表示
+fun hasEmpty(vararg strArray: String?): Boolean {
+    for(str in strArray) {
+        if(&quot;&quot;.equals(str) || str == null)
+            return true
+    }
+    return false
+}
+</code></pre><ul>
+<li>单表达式函数</li>
+</ul>
+<pre><code>//函数体内只有一条语句,且有返回值
+fun foo(): String {
+    return &quot;abc&quot;
+}
+//这时可以省略大括号,变成单表达式函数
+fun foo() = &quot;abc&quot;
+</code></pre><ul>
+<li>扩展函数: 你可以给父类添加一个方法,这个方法将可以在所有子类中使用.</li>
+</ul>
+<pre><code>fun Activity.toast(message: CharSequence, duration: Int = Toas.lENGTH_SHORT) {
+}
+</code></pre><ul>
+<li>将函数作为参数</li>
+</ul>
+<pre><code>fun lock&lt;T&gt;(lock: Lock, body: () -&gt;T) : T(lock.lock()     try {return body()}
+</code></pre><h4 id="Kotlin与Java混编"><a href="#Kotlin与Java混编" class="headerlink" title="Kotlin与Java混编"></a>Kotlin与Java混编</h4><h6 id="将Java转为Kotlin"><a href="#将Java转为Kotlin" class="headerlink" title="将Java转为Kotlin"></a>将Java转为Kotlin</h6><ul>
+<li>使用kotlin插件</li>
+</ul>
+<h6 id="在Kotlin中调用Java代码"><a href="#在Kotlin中调用Java代码" class="headerlink" title="在Kotlin中调用Java代码"></a>在Kotlin中调用Java代码</h6><ul>
+<li>如果一个Java方法返回void, 对应的在Kotlin代码中它将返回<code>Unit</code>.在kotlin中可以省略这个返回类型.</li>
+<li><p>Java中有static关键字,在kotlin中没有这个关键字,你需要使用<code>@JvmStatic</code>替代这个关键字.同样,在kotlin中也有很多的关键字是Java中没有的.例如<code>in</code>,<code>is</code>,<code>data</code>等.如果Java中使用了这些关键字,需要加上反引号(`)转义来避免冲突.</p>
+<pre><code>//java代码中有个方法叫 is()
+public void is() {
+}
+//转换为kotlin代码需要加反引号转义
+fun `is`() {
+}
+</code></pre></li>
+</ul>
+<h6 id="在Java中调用Kotlin代码"><a href="#在Java中调用Kotlin代码" class="headerlink" title="在Java中调用Kotlin代码"></a>在Java中调用Kotlin代码</h6><ul>
+<li>如果想在Java中通过类名调用一个kotlin类的方法,你需要给这个方法加入<code>@JvmStatic</code>注解(这个注解只在jvm平台有用).否则你必须通过对象调用这个方法.</li>
+</ul>
+<pre><code>StringUtils.isEmpty(&quot;hello&quot;);
+StringUtils.INSTANCE.isEmpty2(&quot;hello&quot;);
+//
+object StringUtils {
+    @JvmStatic fun isEmpty(str: String): Boolean {
+        return &quot;&quot; == str
+    }
+    fun isEmpty2(str: String):Boolean {
+        return &quot;&quot; == str
+    }
+}
+
+
+
+class StringUtils {
+    companion object {
+        fun isEmpty(str: String): Boolean {
+            return &quot;&quot; == str
+        }
+    }
+}
+</code></pre><ul>
+<li><code>companion object</code>表示外部类的一个<strong>伴生对象</strong>,你可以理解为外部类自动创建了一个对象作为自己的<code>field</code>. Java在调用时,可以这样写:StringUtils.isEmpty().</li>
+</ul>
+<h4 id="Kotlin的类特性"><a href="#Kotlin的类特性" class="headerlink" title="Kotlin的类特性"></a>Kotlin的类特性</h4><h6 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h6><ul>
+<li><p>Kotlin的构造函数可以写在类头中,跟在类名后面,如果有注解还需要加上关键字<code>construtor</code>.这种写法声明的构造函数,我们称之为主构造函数.例如下面我们为<code>Person</code>创建带一个<code>String</code>类型参数的构造函数.</p>
+<pre><code>class Person(private val name: String) {
+    fun sayHello() {
+        println(&quot;hello $name&quot;)
+    }
+}
+</code></pre></li>
+<li><p>在构造函数中声明的参数,它们默认属于类的公有字段,可以直接使用,如果你不希望别的类访问到这个变量,可以用<code>private</code>修饰.在主构造函数中不能有任何代码实现,如果有额外的代码需要在构造方法中执行,你需要放到<code>init</code>代码块中执行.同时,在本示例中由于需要更改name参数的值,我们将val改为var,表明name参数是一个可改变的参数.</p>
+</li>
+</ul>
+<pre><code>class Person(private var name: String) {
+    init {
+        name = &quot;HeHong Liu&quot;
+    }
+    internal fun sayHello() {
+        println(&quot;hello $name&quot;)
+    }
+}
+</code></pre><ul>
+<li>如果一个非抽象类没有声明任何(主或次)构造函数,它会有一个生成的不带参数的主构造函数.构造函数的可见性是public.如果你不希望你的类有一个公有构造函数,你需要声明一个带有非默认可见性的主构造函数.另外,在JVM上,如果主构造函数的所有的参数都有参数值,编译器会生成一个额外的无参构函数,它将使用默认值.</li>
+</ul>
+<h6 id="次级构造函数"><a href="#次级构造函数" class="headerlink" title="次级构造函数"></a>次级构造函数</h6><ul>
+<li>一个类当然会有多个构造函数的可能,只有主构造函数可以写在类头中,其他的次级构造函数就要写在类体中了.</li>
+</ul>
+<pre><code>class Person(private var name: String) {
+    private var description: String? = null
+    init {
+        name = &quot;HeHong Liu&quot;
+    }
+    constructor(name: String, description: String) : this(name) {
+        this.description = description
+    }
+    internal fun sayHello() {
+        println(&quot;hello $name&quot;)
+    }
+}
+</code></pre><ul>
+<li>这里我们让次级构造函数调用了主构造函数,完成name的赋值.由于次级构造函数不能直接将参数转换为字段,所以需要手动声明一个description字段,并为description字段赋值.</li>
+</ul>
+<h6 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h6><ul>
+<li><code>open</code>: Kotlin默认会为每个变量和方法添加<code>final</code>修饰符.这么做的目的是为了程序运行的性能.为每个类加了<code>final</code>也就是说,在kotlin中默认每个类都是不可被继承的.如果你确定这个类是会被继承,那么你需要给这个类添加<code>open</code>修饰符.接口中的属性和方法都是open的,不用另外加open标识.</li>
+<li><code>internal</code>: 在Kotlin中,默认的访问权限是<code>public</code>, 也就是说不加访问权限修饰符的就是<code>public</code>的.而多增加了一种访问修饰符叫<code>internal</code>,它是模块级别的访问权限.何为模块,我们称被一起编译的一系列Kotlin文件为一个模块.在IDEA中可以很明确的看到一个<code>module</code>就是一个模块,当跨<code>module</code>的时候就无法访问另一个<code>module</code>的<code>internal</code>变量或方法.</li>
+<li><code>private</code>: 本类内部(包含其所有成员)都可见.</li>
+<li><code>protected</code>: 只在本类内部+子类中可见.</li>
+<li><code>public</code>: 能见到类声明的任何客户端都可以见到其public成员.</li>
+</ul>
+<h6 id="field标识符"><a href="#field标识符" class="headerlink" title="field标识符"></a>field标识符</h6><ul>
+<li>如果不想定义一个字段来保存属性的值,可以使用field标识符,如下所示:</li>
+</ul>
+<pre><code>class User {
+    var username: String = &quot;LLhon&quot;
+        get() = field
+        set(value) {
+            field = value
+        }
+}
+</code></pre><h6 id="嵌套类"><a href="#嵌套类" class="headerlink" title="嵌套类"></a>嵌套类</h6><ul>
+<li>用<code>inner</code>关键字标记嵌套类, 可以通过外部类的实例调用嵌套类.</li>
+</ul>
+<pre><code>class User {
+    var age: Int = 0
+    inner class UserName {
+    }
+}
+var userName: User.UserName = User().UserName()
+</code></pre><h6 id="一些特殊的类"><a href="#一些特殊的类" class="headerlink" title="一些特殊的类"></a>一些特殊的类</h6><ul>
+<li>枚举类</li>
+<li>sealed密封类</li>
+<li>data数据类: data修饰的类称之为数据类.它通常用在我们写的一些POJO类上.当data修饰后,会自动将所有成员用<code>operator</code>声明,即为这些成员生成类似Java的getter/setter方法.</li>
+</ul>
+<h4 id="类的扩展"><a href="#类的扩展" class="headerlink" title="类的扩展"></a>类的扩展</h4><h6 id="扩展方法"><a href="#扩展方法" class="headerlink" title="扩展方法"></a>扩展方法</h6><ul>
+<li>在Java开发的时候,经常会写一大堆的Utils类.如果每个类在想要用这些工具类的时候,他们自己就已经具备了这些工具方法多好,Kotlin的类扩展方法就是这个作用.</li>
+</ul>
+<pre><code>    fun Activity.toast(msg: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
+        Toast.makeText(this, msg, duration).show()
+    }
+
+
+&gt;首先是一个`fun`关键字,紧接着是要扩展哪个类的类名,点方法名,然后是方法的声明和返回值以及方法体. 
+</code></pre><h6 id="强转与智能转换"><a href="#强转与智能转换" class="headerlink" title="强转与智能转换"></a>强转与智能转换</h6><ul>
+<li>在Kotlin中,用<code>is</code>来判断一个对象是否是某个类的实例,用<code>as</code>来做强转.Kotlin有一个很好的特性,叫<code>智能转换</code>.就是当已经确定一个对象的类型后,可以自动识别为这个类的对象,而不用再手动强转.</li>
+</ul>
+<pre><code>fun main(args: Array&lt;String&gt;) {
+    var animal: Animal? = xxx
+    if(animal is Dog) {
+        //在这里animal被当作Dog的对象来处理
+        animal.bark()
+    }
+}
+</code></pre><h6 id="伴生对象"><a href="#伴生对象" class="headerlink" title="伴生对象"></a>伴生对象</h6><ul>
+<li>由于Kotlin没有静态方法.在大多数情况下,官方建议是简单地使用包级函数.如果你需要写一个可以无需用一个类的实例来调用,但需要访问类内部的函数(例如:工厂方法或单例),你可以把它写成一个用<code>companion</code>修饰的对象内的方法.</li>
+</ul>
+<pre><code>class StringUtils {
+    companion object {
+        fun isEmpty(str: String): Boolean {
+            return &quot;&quot; == str
+        }
+    }
+}
+</code></pre><h6 id="单例类设计"><a href="#单例类设计" class="headerlink" title="单例类设计"></a>单例类设计</h6><ul>
+<li>伴生对象更多的用途是用来创建一个单例类.如果只是简单的写,直接用伴生对象返回一个<code>val</code>修饰的外部类对象就可以了,但是更多的时候我们希望在类被调用的时候才去初始化他的对象.以下代码将线程安全问题交给虚拟机在静态内部类加载时处理,是一种推荐的写法:</li>
+</ul>
+<pre><code>class Single private constructor() {
+    companion object {
+        fun get(): Single{
+            return Holder.instance
+        }
+    }
+
+    private object Holder {
+        val instance = Single()
+    }
+}
+</code></pre><ul>
+<li>使用伴生对象实现静态类成员的功能,如下所示:</li>
+</ul>
+<pre><code>//Java写法
+class User {
+    static User instance = new User();
+    public void printlnUser() {
+    }
+}
+User.instance.printlnUser()
+//Kotlin写法
+class User {
+    companion object {
+        var instance = User()
+    }
+    fun printlnUser {
+    }
+}
+User.instance.printlnUser()
+</code></pre><h4 id="函数与闭包"><a href="#函数与闭包" class="headerlink" title="函数与闭包"></a>函数与闭包</h4><h6 id="Unit"><a href="#Unit" class="headerlink" title="Unit"></a>Unit</h6><ul>
+<li>如果一个函数是空函数,比如Android开发中的TextWatch接口,通常只会用到一个方法,但必须把所有方法都重写一遍,就可以通过这种方式来简写.</li>
+</ul>
+<pre><code>    editText.addTextChangedListener(object: TextWatcher {
+        override fun afterTextChanged(s: Editable?) = Unit
+        override fun beforeTextChanged(s: CharSequence?,start: Int,count: Int, after: Int) = Unit
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
+    })
+
+
+&gt; Unit表示的是一个值的类型,这种类型类似于Java中的`void`类型
+</code></pre><h6 id="Nothing"><a href="#Nothing" class="headerlink" title="Nothing"></a>Nothing</h6><ul>
+<li>Nothing也是一个值的类型.如果一个函数不会返回(也就是说只要调用这个函数,那么在它返回之前程序肯定出错了,比如一定会抛出异常的函数),理论上你可以随便给他一个返回值,通常我们会声明为返回<code>Nothing</code>类型.</li>
+</ul>
+<h6 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h6><ul>
+<li>以下代码,if语句仍旧是一个闭包.但通常情况下,我们所说的闭包是Lambda表达式.</li>
+</ul>
+<pre><code>    fun main(args: Array&lt;String&gt;) {
+        test
+    }
+    val test = if (5 &gt; 3) {
+        print(&quot;yes&quot;)
+    } else {
+        print(&quot;no&quot;)
+    }
+
+&gt; 注意: 闭包是不能有变长参数的.
+</code></pre><h6 id="自执行闭包"><a href="#自执行闭包" class="headerlink" title="自执行闭包"></a>自执行闭包</h6><ul>
+<li>自执行闭包就是在定义闭包的同时直接执行闭包,一般用于初始化上下文环境.例如:</li>
+</ul>
+<pre><code>{x: Int, y: Int -&gt;
+    println(&quot;${x + y}&quot;)
+}(1, 3)
+</code></pre><h6 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h6><ul>
+<li>以下代码首先声明了一个名为printMsg的Lambda,它接受一个String类型的值作为参数,然后在main函数中调用它.如果还想省略,你还可以在调用时直接省略invoke,像函数一样使用.</li>
+</ul>
+<pre><code>val printMsg = {msg: String -&gt;
+    println(msg)
+}
+fun main(args: Array&lt;String&gt;) {
+    printMsg.invoke(&quot;hello&quot;)
+}
+//更简洁的写法
+fun main(args: Array&lt;String&gt;) {
+    printMsg(&quot;hello&quot;)
+}
+</code></pre><ul>
+<li>Lambda表达式还有非常多的语法糖,比如<blockquote>
+<ul>
+<li>当参数只有一个的时候,声明中可以不用显示声明参数,在使用参数时可以用<code>it</code>来替代那个唯一的参数.</li>
+<li>当有多个用不到的参数时,可以用下划线来替代参数名(1.1以后的特性),但是如果已经用下划线来省略参数时,是不能使用<code>it</code>来替代当前参数的.</li>
+<li>Lambda最后一条语句的执行结果表示这个Lambda的返回值.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h6 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h6><ul>
+<li>Lambda表达式最大的特点是可以作为参数传递.当定义一个闭包作为参数的函数,称这个函数为高阶函数.</li>
+</ul>
+<pre><code>fun main(args: Array&lt;String&gt;) {
+    log(&quot;world&quot;, printMsg)
+}
+val printMsg = {str: String -&gt;
+    println(str)
+}
+val log = {str: String, printLog: (String) -&gt; Unit -&gt;
+    printLog(str)
+}
+</code></pre><h6 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h6><h4 id="集合泛型与操作符"><a href="#集合泛型与操作符" class="headerlink" title="集合泛型与操作符"></a>集合泛型与操作符</h4><h6 id="Kotlin中的集合接口"><a href="#Kotlin中的集合接口" class="headerlink" title="Kotlin中的集合接口"></a>Kotlin中的集合接口</h6><ul>
+<li>所有类声明的泛型尖括号里面如果加入了<code>out</code>关键字,则说明这个类的对象是只读的,例如它只有:get(),size()等方法,而没有set(),remove()等方法.相反地,如果没有加<code>out</code>关键字,或者换一种记法:如果开头是<code>MutableXXX</code>那就是一个跟Java中用法一致的集合类.</li>
+</ul>
+<h6 id="in与out"><a href="#in与out" class="headerlink" title="in与out"></a>in与out</h6><ul>
+<li>与<code>out</code>对应的,还有一个<code>in</code>.表示泛型参数是只写的.泛型的<code>in</code>关键字一般用在我们定义的代码中.在看下面这个demo之前,你需要知道一点:Kotlin的泛型是支持协变的.例如下面这段代码:</li>
+</ul>
+<pre><code>open class A
+open class B: A()
+open class B; A啊
+val mutableList: MutableList&lt;B&gt; = mutableListOf(B(), B(), C())
+val list: List&lt;A&gt; = mutableList;
+</code></pre><ul>
+<li>在Kotlin中,可以直接把<code>List&lt;C&gt;</code>的对象赋值给<code>List&lt;A&gt;</code>.泛型声明中,用<code>in</code>声明泛型参数,表示这个参数只能是入参,不能对外返回这个参数</li>
+</ul>
+<pre><code>    open class A
+    open class B: A()
+    open class C: B()
+    class TypeArray&lt;in A&gt; {
+        //in修饰了A,表示A是可以作为参数的.
+        fun getValue(a: A): Int? {
+            return a?.hashCode()
+        }
+        //这段代码是非法的,因为A不能被返回
+        fun getA(a: A): A? {
+            return a
+        }
+    }
+
+&gt; 总结: 用out来修饰T,只能消费T类型,不能返回T类型,用in来修饰T,只能返回T类型,不能消费T类型.简单来说就是in是消费者,out是生产者.
+</code></pre><h6 id="集合的初始化"><a href="#集合的初始化" class="headerlink" title="集合的初始化"></a>集合的初始化</h6><ul>
+<li>在Kotlin中,集合类一般不使用构造方法去初始化,而是使用同一的入口方法,例如初始化一个<code>MutableList</code>,我们使用的是如下代码:</li>
+</ul>
+<pre><code>val mutableList = mutableListOf(0, 1, 2, 3)
+</code></pre><ul>
+<li>类似的初始化集合对象的方法还有:</li>
+</ul>
+<pre><code>//创建一个List&lt;&gt;对象
+var list = listOf(0, 1, 2)
+//创建一个Set&lt;&gt;对象
+val ss = setOf(1, 2, 4)
+</code></pre><h6 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h6><ul>
+<li>在Kotlin中,操作符本质上是方法调用.例如List的<code>forEach</code>的实现原理实际上是定义了一个这样的方法.为Iterable增加了一个扩展方法,叫<code>forEach</code>,它接收一个T作为参数,并返回Unit的闭包作为参数.</li>
+</ul>
+<pre><code>public inline fun &lt;T&gt; Iterable&lt;T&gt;.forEach(action: (T) -&gt; Unit): Unit {
+    for (element in this) action(element)
+}
+</code></pre>
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/03/10/hello-world/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/luna.png" alt="LLhon's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        honhege@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">2</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.png);">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.png);">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/LLhon" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;LLhon
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
+</html>
