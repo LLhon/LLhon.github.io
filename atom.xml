@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-22T13:21:45.721Z</updated>
+  <updated>2018-05-23T04:30:37.379Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何训练大脑，增强意志力</title>
+    <link href="http://yoursite.com/2018/05/23/%E5%A6%82%E4%BD%95%E8%AE%AD%E7%BB%83%E5%A4%A7%E8%84%91%EF%BC%8C%E5%A2%9E%E5%BC%BA%E6%84%8F%E5%BF%97%E5%8A%9B/"/>
+    <id>http://yoursite.com/2018/05/23/如何训练大脑，增强意志力/</id>
+    <published>2018-05-23T04:18:32.000Z</published>
+    <updated>2018-05-23T04:30:37.379Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;&lt;code&gt;冥想&lt;/code&gt;&lt;/strong&gt;。如果你经常让大脑冥想，它不仅会变得擅长冥想，还会提升你的自控力，提升你集中注意力、管理压力、克制冲动和认识自我的能力。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5分钟训练大脑冥想：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>使用Kotlin开发Android(一)</title>
