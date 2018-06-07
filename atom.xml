@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-25T09:32:45.502Z</updated>
+  <updated>2018-06-07T09:53:08.690Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2018-优秀开源框架汇总</title>
+    <link href="http://yoursite.com/2018/06/07/2018-%E4%BC%98%E7%A7%80%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6%E6%B1%87%E6%80%BB/"/>
+    <id>http://yoursite.com/2018/06/07/2018-优秀开源框架汇总/</id>
+    <published>2018-06-07T03:47:02.000Z</published>
+    <updated>2018-06-07T09:53:08.690Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;组件化&quot;&gt;&lt;a href=&quot;#组件化&quot; class=&quot;headerlink&quot; title=&quot;组件化&quot;&gt;&lt;/a&gt;组件化&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;爱奇艺 &lt;a href=&quot;https://github.com/iqiyi/Andromeda&quot; target=&quot;_bl
+    
+    </summary>
+    
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="框架" scheme="http://yoursite.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>Android-记录一些你不知道的小姿势</title>
