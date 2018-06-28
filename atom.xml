@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-07T09:53:08.690Z</updated>
+  <updated>2018-06-28T13:26:46.206Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>吐血推荐个人珍藏的chrome插件，持续更新...</title>
+    <link href="http://yoursite.com/2018/06/28/%E5%90%90%E8%A1%80%E6%8E%A8%E8%8D%90%E4%B8%AA%E4%BA%BA%E7%8F%8D%E8%97%8F%E7%9A%84chrome%E6%8F%92%E4%BB%B6%EF%BC%8C%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
+    <id>http://yoursite.com/2018/06/28/吐血推荐个人珍藏的chrome插件，持续更新/</id>
+    <published>2018-06-28T12:05:33.000Z</published>
+    <updated>2018-06-28T13:26:46.206Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;推荐一些我自己常用的chrome浏览器插件，都是精品。在chrome商店中搜索插件名称就可以安装使用，注意chrome商店是需要科学上网的，
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>2018-优秀开源框架汇总</title>
